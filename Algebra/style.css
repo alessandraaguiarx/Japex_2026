@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+
+    background-image:url("../img/algebra.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+.overlay{
+    background:rgba(0,0,0,0.75);
+    min-height:100vh;
+}
+
+header{
+    text-align:center;
+    padding:40px;
+    color:white;
+    background:black;
+}
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:0.4s;
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card:hover{
+    transform:scale(1.02);
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.formula{
+    font-size:30px;
+    text-align:center;
+    font-weight:bold;
+}
+
+a{
+    color:#0055ff;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
