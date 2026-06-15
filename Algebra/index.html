@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Modelagem Matricial - JAPEX</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:url("img/algebra.jpg") center center no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    color:white;
+}
+
+/* camada escura */
+
+.overlay{
+    background:rgba(0,0,0,0.75);
+    min-height:100vh;
+}
+
+/* MENU */
+
+nav{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:fixed;
+    top:0;
+    z-index:1000;
+
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:#0077ff;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* CONTEÚDO */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 0;
+}
+
+/* CARDS */
+
+.card{
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+/* EQUAÇÃO */
+
+.formula{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:15px;
+
+    background:rgba(0,119,255,0.2);
+
+    border:1px solid #0077ff;
+}
+
+/* BOTÕES */
+
+.links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.link-btn{
+
+    background:#0077ff;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 25px;
+
+    border-radius:10px;
+
+    transition:0.3s;
+}
+
+.link-btn:hover{
+    background:#005bd1;
+}
+
+/* RODAPÉ */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.8);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.3rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+nav{
+    flex-direction:column;
+    gap:10px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<nav>
+
+<div class="logo">
+JAPEX
+</div>
+
+<ul>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#conceito">Conceito</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Modelagem Matricial do Quantitativo de Materiais</h1>
+
+<p>
+Aplicação da Álgebra Linear na Engenharia Civil para estimar quantitativos
+de materiais em sistemas construtivos utilizando matrizes e transformações lineares.
+</p>
+
+<a href="#sobre" class="btn">
+Explorar Projeto
+</a>
+
+</div>
+
+</section>
+
+<div class="container">
+
+<div class="card" id="sobre">
+
+<h2> Sobre o Projeto</h2>
+
+<p>
+Este projeto demonstra como a Álgebra Linear pode ser aplicada na Engenharia Civil para modelar quantitativos de materiais através de matrizes.
+A metodologia permite estimar blocos, argamassa, concreto e demais insumos de forma eficiente.
+</p>
+
+</div>
+
+<div class="card" id="conceito">
+
+<h2> Conceito Matemático</h2>
+
+<p>
+A modelagem é baseada na multiplicação matricial:
+</p>
+
+<div class="formula">
+M = A × X
+</div>
+
+<p style="margin-top:20px;">
+Onde:
+</p>
+
+<ul style="margin-left:20px; line-height:2;">
+<li>A = Matriz de consumo dos materiais</li>
+<li>X = Vetor de áreas da construção</li>
+<li>M = Quantitativo final estimado</li>
+</ul>
+
+</div>
+
+<div class="card" id="links">
+
+<h2>Acesse o Projeto</h2>
+
+<div class="links">
+
+<a href="https://prezi.com/view/tUU9ksq3lu8h5EcmZRio/?referral_token=JSz370lnB3FN"
+target="_blank"
+class="link-btn">
+Apresentação Prezi
+</a>
+
+<a href="https://github.com/alessandraaguiarx/Modelagem-Matricial-de-Quantitativo-de-materiais"
+target="_blank"
+class="link-btn">
+ GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+Projeto Acadêmico • JAPEX • Álgebra Linear Aplicada à Engenharia Civil
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
