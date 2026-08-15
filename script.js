@@ -1,177 +1,64 @@
 /* ==========================================
    CALCULADORA DE QUANTITATIVO DE MATERIAIS
-   Modelo equivalente ao código Python
+   Equivalente exato ao modelo Python com NumPy
 ========================================== */
-
 
 function calcularMateriais() {
 
+    // Entrada de dados (consumo por m²)
+    const argamassa_x = parseFloat(document.getElementById("argamassaX").value);
+    const argamassa_y = parseFloat(document.getElementById("argamassaY").value);
+    const graute = parseFloat(document.getElementById("graute").value);
 
-    /* =========================
-       ENTRADAS DE CONSUMO
-    ========================== */
+    // Entrada das áreas
+    const x = parseFloat(document.getElementById("areaConvencional").value);
+    const y = parseFloat(document.getElementById("areaEstrutural").value);
 
-
-    const argamassaX = parseFloat(
-        document.getElementById("argamassaX").value
-    );
-
-
-    const argamassaY = parseFloat(
-        document.getElementById("argamassaY").value
-    );
-
-
-    const graute = parseFloat(
-        document.getElementById("graute").value
-    );
-
-
-    /* =========================
-       ENTRADAS DE ÁREA
-    ========================== */
-
-
-    const areaConvencional = parseFloat(
-        document.getElementById("areaConvencional").value
-    );
-
-
-    const areaEstrutural = parseFloat(
-        document.getElementById("areaEstrutural").value
-    );
-
-
-    /* =========================
-       VERIFICAÇÃO
-    ========================== */
-
-
-    if (
-        isNaN(argamassaX) ||
-        isNaN(argamassaY) ||
-        isNaN(graute) ||
-        isNaN(areaConvencional) ||
-        isNaN(areaEstrutural)
-    ) {
-
-        alert(
-            "Por favor, preencha todos os campos."
-        );
-
+    // Verificação de validação
+    if (isNaN(argamassa_x) || isNaN(argamassa_y) || isNaN(graute) || isNaN(x) || isNaN(y)) {
+        alert("Por favor, preencha todos os campos.");
         return;
     }
 
-
-    /* =========================
-       IMPEDIR VALORES NEGATIVOS
-    ========================== */
-
-
-    if (
-        argamassaX < 0 ||
-        argamassaY < 0 ||
-        graute < 0 ||
-        areaConvencional < 0 ||
-        areaEstrutural < 0
-    ) {
-
-        alert(
-            "Os valores informados devem ser iguais ou maiores que zero."
-        );
-
+    if (argamassa_x < 0 || argamassa_y < 0 || graute < 0 || x < 0 || y < 0) {
+        alert("Os valores informados devem ser iguais ou maiores que zero.");
         return;
     }
 
+    // Matriz de consumo A (equivalente a np.array no Python)
+    const A = [
+        [argamassa_x, 0],
+        [0, argamassa_y],
+        [0, graute]
+    ];
 
-    /* =========================
-       MODELO MATRICIAL
+    // Vetor de áreas X (equivalente a np.array([x, y]))
+    const X = [x, y];
 
-       A =
-       [ argamassaX     0       ]
-       [      0      argamassaY  ]
-       [      0        graute    ]
+    // Produto matricial: resultado = A.dot(X)
+    const resultado = [
+        A[0][0] * X[0] + A[0][1] * X[1],
+        A[1][0] * X[0] + A[1][1] * X[1],
+        A[2][0] * X[0] + A[2][1] * X[1]
+    ];
 
-       X =
-       [ área convencional ]
-       [ área estrutural   ]
+    // Formatação em moeda/padrão pt-BR
+    const resArgXStr = resultado[0].toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const resArgYStr = resultado[1].toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const resGrauteStr = resultado[2].toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-    ========================== */
+    // Exibição dos resultados detalhados
+    document.getElementById("resultadoArgamassaX").innerHTML = 
+        `Será necessário <strong>${resArgXStr} kg</strong> de ARGAMASSA X (alvenaria convencional - X)`;
+    
+    document.getElementById("resultadoArgamassaY").innerHTML = 
+        `Será necessário <strong>${resArgYStr} kg</strong> de ARGAMASSA Y (alvenaria estrutural - Y)`;
+    
+    document.getElementById("resultadoGraute").innerHTML = 
+        `Será necessário <strong>${resGrauteStr} kg</strong> de GRAUTE (alvenaria estrutural - Y)`;
 
-
-    const resultadoArgamassaX =
-        argamassaX * areaConvencional;
-
-
-    const resultadoArgamassaY =
-        argamassaY * areaEstrutural;
-
-
-    const resultadoGraute =
-        graute * areaEstrutural;
-
-
-    /* =========================
-       FORMATAR RESULTADOS
-    ========================== */
-
-
-    document.getElementById(
-        "resultadoArgamassaX"
-    ).textContent =
-        resultadoArgamassaX.toLocaleString(
-            "pt-BR",
-            {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }
-        ) + " kg";
-
-
-    document.getElementById(
-        "resultadoArgamassaY"
-    ).textContent =
-        resultadoArgamassaY.toLocaleString(
-            "pt-BR",
-            {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }
-        ) + " kg";
-
-
-    document.getElementById(
-        "resultadoGraute"
-    ).textContent =
-        resultadoGraute.toLocaleString(
-            "pt-BR",
-            {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }
-        ) + " kg";
-
-
-    /* =========================
-       MOSTRAR RESULTADO
-    ========================== */
-
-
-    const resultado =
-        document.getElementById("resultado");
-
-
-    resultado.style.display = "block";
-
-
-    /* =========================
-       LEVAR O USUÁRIO AO RESULTADO
-    ========================== */
-
-
-    resultado.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-    });
-
+    // Mostrar bloco e mover a tela
+    const boxResultado = document.getElementById("resultado");
+    boxResultado.style.display = "block";
+    boxResultado.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
