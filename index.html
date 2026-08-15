@@ -2,661 +2,122 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Modelagem Matricial - JAPEX</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="css/style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <div class="overlay">
 
-
-    <!-- =========================
-         MENU
-    ========================== -->
-
     <nav>
-
-        <div class="logo">
-            JAPEX
-        </div>
-
-
+        <div class="logo">JAPEX</div>
         <ul>
-
-            <li>
-                <a href="#sobre">
-                    Sobre
-                </a>
-            </li>
-
-            <li>
-                <a href="#conceito">
-                    Conceito
-                </a>
-            </li>
-
-            <li>
-                <a href="#calculadora">
-                    Calculadora
-                </a>
-            </li>
-
-            <li>
-                <a href="#links">
-                    Projeto
-                </a>
-            </li>
-
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#conceito">Conceito</a></li>
+            <li><a href="#calculadora">Calculadora</a></li>
+            <li><a href="#links">Links</a></li>
         </ul>
-
     </nav>
 
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
     <section class="hero">
-
         <div class="hero-content">
-
-
-            <span class="hero-tag">
-                JAPEX • Álgebra Linear Aplicada à Engenharia Civil
-            </span>
-
-
-            <h1>
-                Modelagem Matricial do Quantitativo de Materiais
-            </h1>
-
-
+            <h1>Modelagem Matricial do Quantitativo de Materiais</h1>
             <p>
-
-                Uma aplicação da Álgebra Linear na Engenharia Civil
-                para relacionar áreas de alvenaria aos respectivos
-                quantitativos de materiais por meio de matrizes,
-                sistemas lineares e transformações lineares.
-
+                Aplicação da Álgebra Linear na Engenharia Civil para estimar quantitativos
+                de materiais em sistemas construtivos utilizando matrizes e transformações lineares.
             </p>
-
-
-            <p class="hero-subtitle">
-
-                O projeto busca aproximar os conceitos matemáticos
-                estudados na graduação de uma aplicação prática
-                relacionada ao planejamento e à quantificação de
-                materiais na construção civil.
-
-            </p>
-
-
-            <a href="#calculadora" class="btn">
-
-                Experimentar a aplicação
-
-            </a>
-
-
+            <a href="#calculadora" class="btn">Explorar Calculadora</a>
         </div>
-
     </section>
 
+    <div class="container">
 
-
-    <!-- =========================
-         CONTEÚDO
-    ========================== -->
-
-    <main class="container">
-
-
-
-        <!-- SOBRE -->
-
-        <section class="card" id="sobre">
-
-            <h2>
-                Sobre o Projeto
-            </h2>
-
-
+        <div class="card" id="sobre">
+            <h2>Sobre o Projeto</h2>
             <p>
-
-                Este projeto apresenta uma aplicação de conceitos
-                de Álgebra Linear na Engenharia Civil, utilizando
-                a modelagem matricial para representar o quantitativo
-                de materiais empregados em sistemas de alvenaria
-                convencional e estrutural.
-
+                Este projeto demonstra como a Álgebra Linear pode ser aplicada na Engenharia Civil para modelar quantitativos de materiais através de matrizes.
+                A metodologia permite estimar blocos, argamassa, concreto e demais insumos de forma eficiente.
             </p>
-
-
-            <p>
-
-                A proposta consiste em relacionar as áreas de
-                alvenaria aos respectivos consumos de materiais,
-                organizando essas relações por meio de uma matriz
-                de coeficientes e de uma transformação linear.
-
-            </p>
-
-
-            <p>
-
-                A partir das áreas informadas pelo usuário e dos
-                respectivos consumos por metro quadrado, o sistema
-                calcula automaticamente os quantitativos de
-                argamassa e graute.
-
-            </p>
-
-        </section>
-
-
-
-        <!-- CONCEITO -->
-
-        <section class="card" id="conceito">
-
-            <h2>
-                Conceito Matemático
-            </h2>
-
-
-            <p>
-
-                O modelo utilizado no projeto é representado pela
-                multiplicação matricial:
-
-            </p>
-
-
-            <div class="formula">
-
-                M = A × X
-
-            </div>
-
-
-            <p class="formula-description">
-
-                A matriz de consumo relaciona as áreas de alvenaria
-                aos quantitativos de materiais obtidos.
-
-            </p>
-
-
-            <div class="concept-grid">
-
-
-                <div>
-
-                    <strong>A</strong>
-
-                    <span>
-                        Matriz de consumo dos materiais
-                    </span>
-
-                </div>
-
-
-                <div>
-
-                    <strong>X</strong>
-
-                    <span>
-                        Vetor de áreas da obra
-                    </span>
-
-                </div>
-
-
-                <div>
-
-                    <strong>M</strong>
-
-                    <span>
-                        Vetor de quantitativos de materiais
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CALCULADORA
-        ========================== -->
-
-        <section class="card" id="calculadora">
-
-            <h2>
-                Aplicação Interativa
-            </h2>
-
-
-            <p>
-
-                Utilize a ferramenta abaixo para inserir os
-                parâmetros de consumo e as áreas de alvenaria.
-                O sistema realizará automaticamente o cálculo
-                dos quantitativos de materiais.
-
-            </p>
-
-
-            <div class="calculator">
-
-
-                <div class="calculator-title">
-
-                    <h3>
-                        Cálculo de Quantitativo de Materiais
-                    </h3>
-
-                    <p>
-                        Informe os dados da obra:
-                    </p>
-
-                </div>
-
-
-
-                <!-- CAMPOS -->
-
+        </div>
+
+        <div class="card" id="conceito">
+            <h2>Conceito Matemático</h2>
+            <p>A modelagem é baseada na multiplicação matricial:</p>
+            <div class="formula">M = A × X</div>
+            <p style="margin-top:20px;">Onde:</p>
+            <ul style="margin-left:20px; line-height:2;">
+                <li><strong>A</strong> = Matriz de consumo dos materiais</li>
+                <li><strong>X</strong> = Vetor de áreas da construção</li>
+                <li><strong>M</strong> = Quantitativo final estimado</li>
+            </ul>
+        </div>
+
+        <!-- CALCULADORA INTEGRADA COM SCRIPT.JS -->
+        <div class="card" id="calculadora">
+            <h2>Calculadora Interativa</h2>
+            <p style="margin-bottom: 20px;">Insira os dados de consumo e áreas para realizar a multiplicação matricial:</p>
+            
+            <form onsubmit="event.preventDefault(); calcularMateriais();">
                 <div class="form-grid">
-
-
-                    <!-- ARGAMASSA X -->
-
-                    <div class="field">
-
-                        <label for="argamassaX">
-
-                            Consumo de Argamassa X
-                            <small>(kg/m²)</small>
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="argamassaX"
-                            placeholder="Ex.: 5"
-                            step="any"
-                            min="0"
-                        >
-
+                    <div class="input-group">
+                        <label for="argamassaX">Consumo Argamassa X (kg/m²):</label>
+                        <input type="number" id="argamassaX" step="any" placeholder="Ex: 5" required>
                     </div>
 
-
-
-                    <!-- ARGAMASSA Y -->
-
-                    <div class="field">
-
-                        <label for="argamassaY">
-
-                            Consumo de Argamassa Y
-                            <small>(kg/m²)</small>
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="argamassaY"
-                            placeholder="Ex.: 3"
-                            step="any"
-                            min="0"
-                        >
-
+                    <div class="input-group">
+                        <label for="argamassaY">Consumo Argamassa Y (kg/m²):</label>
+                        <input type="number" id="argamassaY" step="any" placeholder="Ex: 6" required>
                     </div>
 
-
-
-                    <!-- GRAUTE -->
-
-                    <div class="field">
-
-                        <label for="graute">
-
-                            Consumo de Graute
-                            <small>(kg/m²)</small>
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="graute"
-                            placeholder="Ex.: 2"
-                            step="any"
-                            min="0"
-                        >
-
+                    <div class="input-group">
+                        <label for="graute">Consumo Graute (kg/m²):</label>
+                        <input type="number" id="graute" step="any" placeholder="Ex: 2" required>
                     </div>
 
-
-
-                    <!-- ÁREA CONVENCIONAL -->
-
-                    <div class="field">
-
-                        <label for="areaConvencional">
-
-                            Área de Alvenaria Convencional
-                            <small>(m²)</small>
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="areaConvencional"
-                            placeholder="Ex.: 10"
-                            step="any"
-                            min="0"
-                        >
-
+                    <div class="input-group">
+                        <label for="areaConvencional">Área Convencional (m²):</label>
+                        <input type="number" id="areaConvencional" step="any" placeholder="Ex: 100" required>
                     </div>
 
-
-
-                    <!-- ÁREA ESTRUTURAL -->
-
-                    <div class="field">
-
-                        <label for="areaEstrutural">
-
-                            Área de Alvenaria Estrutural
-                            <small>(m²)</small>
-
-                        </label>
-
-
-                        <input
-                            type="number"
-                            id="areaEstrutural"
-                            placeholder="Ex.: 20"
-                            step="any"
-                            min="0"
-                        >
-
+                    <div class="input-group">
+                        <label for="areaEstrutural">Área Estrutural (m²):</label>
+                        <input type="number" id="areaEstrutural" step="any" placeholder="Ex: 150" required>
                     </div>
-
                 </div>
 
+                <button type="submit" class="btn btn-calc">Calcular Quantitativos</button>
+            </form>
 
-
-                <!-- BOTÃO -->
-
-                <button
-                    type="button"
-                    class="calculate-btn"
-                    onclick="calcularMateriais()"
-                >
-
-                    Calcular Quantitativos
-
-                </button>
-
-
-
-                <!-- RESULTADO -->
-
-                <div
-                    class="result-box"
-                    id="resultado"
-                >
-
-                    <div class="result-header">
-
-                        <h3>
-                            Resultado
-                        </h3>
-
-                        <span>
-                            Quantitativos estimados
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="results-grid">
-
-
-                        <div class="result-item">
-
-                            <span>
-                                Argamassa X
-                            </span>
-
-                            <strong id="resultadoArgamassaX">
-                                0,00 kg
-                            </strong>
-
-                        </div>
-
-
-
-                        <div class="result-item">
-
-                            <span>
-                                Argamassa Y
-                            </span>
-
-                            <strong id="resultadoArgamassaY">
-                                0,00 kg
-                            </strong>
-
-                        </div>
-
-
-
-                        <div class="result-item">
-
-                            <span>
-                                Graute
-                            </span>
-
-                            <strong id="resultadoGraute">
-                                0,00 kg
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
+            <div id="resultado" class="result-box" style="display: none;">
+                <h3>Resultado Estimado (Vetor M)</h3>
+                <p>Argamassa X: <strong id="resultadoArgamassaX">0,00 kg</strong></p>
+                <p>Argamassa Y: <strong id="resultadoArgamassaY">0,00 kg</strong></p>
+                <p>Graute: <strong id="resultadoGraute">0,00 kg</strong></p>
             </div>
+        </div>
 
-        </section>
-
-
-
-        <!-- =========================
-             COMO FUNCIONA
-        ========================== -->
-
-        <section class="card">
-
-            <h2>
-                Como funciona?
-            </h2>
-
-
-            <div class="steps">
-
-
-                <div class="step">
-
-                    <span>
-                        01
-                    </span>
-
-                    <p>
-                        Informe os consumos dos materiais.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <span>
-                        02
-                    </span>
-
-                    <p>
-                        Informe as áreas de alvenaria.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <span>
-                        03
-                    </span>
-
-                    <p>
-                        Execute o cálculo.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <span>
-                        04
-                    </span>
-
-                    <p>
-                        Consulte os quantitativos obtidos.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             LINKS
-        ========================== -->
-
-        <section class="card" id="links">
-
-            <h2>
-                Acesse o Projeto
-            </h2>
-
-
-            <p>
-
-                Para conhecer o desenvolvimento completo do
-                trabalho, consulte a apresentação e o repositório
-                utilizado durante o projeto.
-
-            </p>
-
-
+        <div class="card" id="links">
+            <h2>Acesse o Projeto</h2>
             <div class="links">
-
-
-                <a
-                    href="https://prezi.com/view/tUU9ksq3lu8h5EcmZRio/?referral_token=JSz370lnB3FN"
-                    target="_blank"
-                    class="link-btn"
-                >
-
-                    Apresentação
-
-                </a>
-
-
-
-                <a
-                    href="https://github.com/alessandraaguiarx/Japex_2026"
-                    target="_blank"
-                    class="link-btn"
-                >
-
-                    GitHub
-
-                </a>
-
-
+                <a href="https://prezi.com/view/tUU9ksq3lu8h5EcmZRio/?referral_token=JSz370lnB3FN" target="_blank" class="link-btn">Apresentação Prezi</a>
+                <a href="https://github.com/alessandraaguiarx/Modelagem-Matricial-de-Quantitativo-de-materiais" target="_blank" class="link-btn">GitHub</a>
             </div>
+        </div>
 
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================
-         RODAPÉ
-    ========================== -->
+    </div>
 
     <footer>
-
-        <p>
-            Projeto Acadêmico • JAPEX
-        </p>
-
-        <p>
-            Álgebra Linear Aplicada à Engenharia Civil
-        </p>
-
+        <p>Projeto Acadêmico • JAPEX • Álgebra Linear Aplicada à Engenharia Civil</p>
     </footer>
-
 
 </div>
 
-
-
-<!-- =========================
-     JAVASCRIPT
-========================== -->
-
-<script src="js/script.js"></script>
-
-
+<script src="script.js"></script>
 </body>
-
 </html>
