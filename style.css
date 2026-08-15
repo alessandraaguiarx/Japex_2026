@@ -1,79 +1,63 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-
-    --bg: #07111f;
-
-    --panel: rgba(10, 25, 45, 0.78);
-
-    --text: #f6f8fb;
-
-    --muted: #b8c4d4;
-
-    --accent: #4da3ff;
-
-    --accent-2: #74c0fc;
-
-    --line: rgba(255, 255, 255, 0.14);
-
-    --success: #64d39b;
-
-    --danger: #ff8585;
-
-}
-
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
 
-    font-family: "Inter", Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     background:
-        var(--bg)
-        url("img/algebra.jpg")
-        center / cover fixed no-repeat;
+        url("../img/algebra.jpg")
+        center center
+        / cover
+        no-repeat
+        fixed;
 
-    color: var(--text);
+    color: white;
 
-    line-height: 1.7;
+    min-height: 100vh;
 }
 
 
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(3, 8, 16, 0.76);
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
+/* =========================
+   SOBREPOSIÇÃO DO FUNDO
+========================= */
 
 .overlay {
+
+    background:
+        rgba(0, 0, 0, 0.75);
 
     min-height: 100vh;
 
 }
 
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 
-.topbar {
+nav {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 8%;
 
     position: fixed;
 
@@ -81,279 +65,518 @@ body::before {
 
     left: 0;
 
-    right: 0;
-
     z-index: 1000;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 16px 7%;
-
     background:
-        rgba(3, 8, 16, 0.72);
-
-    border-bottom:
-        1px solid var(--line);
+        rgba(0, 0, 0, 0.45);
 
     backdrop-filter:
-        blur(14px);
+        blur(10px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
 }
 
 
-.brand {
+.logo {
 
-    color: var(--text);
+    font-size: 1.4rem;
 
-    text-decoration: none;
+    font-weight: 700;
 
-    font-family: "Poppins", sans-serif;
-
-    font-weight: 800;
-
-    letter-spacing: 0.04em;
+    letter-spacing: 1px;
 
 }
 
 
-.brand span {
-
-    color: var(--accent);
-
-}
-
-
-nav {
+nav ul {
 
     display: flex;
 
-    gap: 18px;
+    gap: 25px;
 
-    flex-wrap: wrap;
-
-    justify-content: flex-end;
+    list-style: none;
 
 }
 
 
 nav a {
 
-    color: var(--muted);
+    color: white;
 
     text-decoration: none;
 
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 
-    transition: 0.25s ease;
+    transition: 0.3s;
 
 }
 
 
 nav a:hover {
 
-    color: var(--text);
+    color: #4da3ff;
 
 }
 
 
-.menu-toggle {
-
-    display: none;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        transparent;
-
-    color: var(--text);
-
-    padding:
-        7px 10px;
-
-    border-radius:
-        8px;
-
-    cursor:
-        pointer;
-
-}
-
-
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
 
     min-height: 100vh;
 
-    display: grid;
+    display: flex;
 
-    place-items: center;
+    justify-content: center;
 
-    padding:
-        130px 7% 80px;
+    align-items: center;
 
     text-align: center;
+
+    padding: 120px 20px 60px;
 
 }
 
 
 .hero-content {
 
-    max-width:
-        1050px;
+    max-width: 950px;
 
 }
 
 
-.eyebrow {
+.hero-tag {
 
-    color:
-        var(--accent-2);
+    display: inline-block;
 
-    font-size:
-        0.82rem;
+    margin-bottom: 20px;
 
-    font-weight:
-        700;
+    padding: 8px 18px;
 
-    letter-spacing:
-        0.12em;
+    border-radius: 50px;
 
-    text-transform:
-        uppercase;
+    background:
+        rgba(0, 119, 255, 0.15);
 
-    margin-bottom:
-        18px;
+    border:
+        1px solid
+        rgba(0, 119, 255, 0.5);
+
+    font-size: 0.85rem;
+
+    color: #b9dcff;
 
 }
 
 
 .hero h1 {
 
-    font-family:
-        "Poppins",
-        sans-serif;
+    font-size: 3.5rem;
 
-    font-size:
-        clamp(2.5rem, 6vw, 5.3rem);
+    line-height: 1.15;
 
-    line-height:
-        1.06;
-
-    letter-spacing:
-        -0.04em;
+    margin-bottom: 25px;
 
 }
 
 
-.hero h1 span {
+.hero p {
 
-    display:
-        block;
+    font-size: 1.15rem;
 
-    color:
-        var(--accent-2);
+    line-height: 1.8;
 
-}
-
-
-.subtitle {
-
-    margin-top:
-        18px;
-
-    font-size:
-        clamp(1.1rem, 2vw, 1.55rem);
-
-    font-weight:
-        700;
+    color: #eeeeee;
 
 }
 
 
-.hero-text {
+.hero-subtitle {
 
-    max-width:
-        760px;
+    margin-top: 15px;
 
-    margin:
-        18px auto 0;
+    font-size: 1rem !important;
 
-    color:
-        var(--muted);
-
-    font-size:
-        1.05rem;
-
-}
-
-
-.hero-actions,
-.links,
-.calculator-actions {
-
-    display:
-        flex;
-
-    gap:
-        12px;
-
-    flex-wrap:
-        wrap;
-
-    margin-top:
-        28px;
-
-    justify-content:
-        center;
+    color: #cccccc !important;
 
 }
 
 
 .btn {
 
-    display:
-        inline-flex;
+    display: inline-block;
 
-    align-items:
-        center;
+    margin-top: 30px;
 
-    justify-content:
-        center;
+    padding: 15px 30px;
 
-    min-height:
-        46px;
+    background: #0077ff;
 
-    padding:
-        12px 20px;
+    color: white;
 
-    border-radius:
-        999px;
+    text-decoration: none;
 
-    border:
-        1px solid var(--line);
+    border-radius: 50px;
 
-    text-decoration:
-        none;
+    font-weight: 600;
 
-    font-weight:
-        700;
-
-    cursor:
-        pointer;
-
-    transition:
-        0.25s ease;
+    transition: 0.3s;
 
 }
 
 
-.btn:hover:not(:disabled) {
+.btn:hover {
+
+    background: #005fd1;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 60px 0 80px;
+
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 18px;
+
+    font-size: 1.8rem;
+
+}
+
+
+.card p {
+
+    line-height: 1.8;
+
+    color: #eeeeee;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================
+   FÓRMULA
+========================= */
+
+.formula {
+
+    text-align: center;
+
+    font-size: 2.2rem;
+
+    font-weight: 700;
+
+    padding: 25px;
+
+    margin: 25px 0;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0, 119, 255, 0.18);
+
+    border:
+        1px solid
+        rgba(0, 119, 255, 0.6);
+
+}
+
+
+.formula-description {
+
+    text-align: center;
+
+    font-size: 0.95rem;
+
+}
+
+
+/* =========================
+   CONCEITO
+========================= */
+
+.concept-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.concept-grid div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.concept-grid strong {
+
+    font-size: 1.8rem;
+
+    color: #66b0ff;
+
+    margin-bottom: 8px;
+
+}
+
+
+.concept-grid span {
+
+    font-size: 0.85rem;
+
+    color: #ddd;
+
+}
+
+
+/* =========================
+   CALCULADORA
+========================= */
+
+.calculator {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+}
+
+
+.calculator-title {
+
+    margin-bottom: 25px;
+
+}
+
+
+.calculator-title h3 {
+
+    margin-bottom: 5px;
+
+    font-size: 1.3rem;
+
+}
+
+
+.calculator-title p {
+
+    font-size: 0.9rem;
+
+    color: #cccccc;
+
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field label {
+
+    margin-bottom: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+}
+
+
+.field label small {
+
+    color: #aaaaaa;
+
+    font-weight: 400;
+
+}
+
+
+.field input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.3s;
+
+}
+
+
+.field input:focus {
+
+    border-color: #0077ff;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 119, 255, 0.15);
+
+}
+
+
+.field input::placeholder {
+
+    color: #aaaaaa;
+
+}
+
+
+/* =========================
+   BOTÃO CALCULAR
+========================= */
+
+.calculate-btn {
+
+    margin-top: 25px;
+
+    padding: 15px 28px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #0077ff;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.calculate-btn:hover {
+
+    background: #005fd1;
 
     transform:
         translateY(-2px);
@@ -361,1258 +584,340 @@ nav a:hover {
 }
 
 
-.btn.primary {
+/* =========================
+   RESULTADO
+========================= */
+
+.result-box {
+
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 15px;
 
     background:
-        var(--accent);
-
-    color:
-        #061120;
-
-    border-color:
-        transparent;
-
-}
-
-
-.btn.secondary {
-
-    background:
-        rgba(255, 255, 255, 0.05);
-
-    color:
-        var(--text);
-
-}
-
-
-.btn:disabled {
-
-    opacity:
-        0.55;
-
-    cursor:
-        not-allowed;
-
-}
-
-
-.authors {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        4px;
-
-    margin-top:
-        42px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        0.92rem;
-
-}
-
-
-/* SEÇÕES */
-
-.section {
-
-    width:
-        min(1180px, 90%);
-
-    margin:
-        0 auto;
-
-    padding:
-        90px 0;
-
-}
-
-
-.section-heading {
-
-    display:
-        flex;
-
-    align-items:
-        baseline;
-
-    gap:
-        14px;
-
-    margin-bottom:
-        28px;
-
-}
-
-
-.section-heading span {
-
-    color:
-        var(--accent);
-
-    font-weight:
-        800;
-
-}
-
-
-.section-heading h2 {
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        clamp(1.75rem, 3.5vw, 2.5rem);
-
-    line-height:
-        1.2;
-
-}
-
-
-.grid {
-
-    display:
-        grid;
-
-    gap:
-        20px;
-
-}
-
-
-.grid.two {
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-}
-
-
-.grid.three {
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-}
-
-
-/* CARDS */
-
-.card,
-.material-card,
-.matrix-card,
-.system-card,
-.example-card {
-
-    background:
-        var(--panel);
+        rgba(0, 119, 255, 0.12);
 
     border:
-        1px solid var(--line);
-
-    border-radius:
-        20px;
-
-    padding:
-        28px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.18);
+        1px solid
+        rgba(0, 119, 255, 0.55);
 
 }
 
 
-.card h3,
-.material-card h3,
-.matrix-card h3 {
+.result-header {
 
-    margin-bottom:
-        12px;
+    display: flex;
 
-}
+    justify-content: space-between;
 
+    align-items: center;
 
-.card p,
-.material-card p,
-.matrix-card p {
+    gap: 15px;
 
-    color:
-        var(--muted);
+    margin-bottom: 20px;
 
 }
 
 
-.highlight,
-.problem-box {
+.result-header h3 {
 
-    margin-top:
-        20px;
-
-    padding:
-        20px 22px;
-
-    border:
-        1px solid rgba(77, 163, 255, 0.35);
-
-    background:
-        rgba(77, 163, 255, 0.1);
-
-    border-radius:
-        16px;
+    font-size: 1.3rem;
 
 }
 
 
-.problem-title {
+.result-header span {
 
-    color:
-        var(--accent-2);
+    font-size: 0.8rem;
 
-    font-size:
-        0.78rem;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        0.12em;
+    color: #bbbbbb;
 
 }
 
 
-.problem-box h3 {
+.results-grid {
 
-    margin-top:
-        5px;
-
-}
-
-
-/* MÉTRICAS */
-
-.metric {
-
-    display:
-        flex;
-
-    gap:
-        15px;
-
-    align-items:
-        center;
-
-    padding:
-        15px 0;
-
-    border-bottom:
-        1px solid var(--line);
-
-}
-
-
-.metric:last-child {
-
-    border-bottom:
-        0;
-
-}
-
-
-.metric-symbol {
-
-    width:
-        46px;
-
-    height:
-        46px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        12px;
-
-    background:
-        rgba(77, 163, 255, 0.14);
-
-    color:
-        var(--accent-2);
-
-    font-weight:
-        800;
-
-}
-
-
-.metric strong,
-.metric small {
-
-    display:
-        block;
-
-}
-
-
-.metric small {
-
-    color:
-        var(--muted);
-
-}
-
-
-/* MATERIAIS */
-
-.material-card {
-
-    text-align:
-        center;
-
-}
-
-
-.material-icon {
-
-    width:
-        54px;
-
-    height:
-        54px;
-
-    margin:
-        0 auto 15px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    background:
-        rgba(77, 163, 255, 0.13);
-
-    color:
-        var(--accent-2);
-
-    border-radius:
-        15px;
-
-    font-weight:
-        800;
-
-}
-
-
-.material-card strong {
-
-    display:
-        block;
-
-    margin:
-        8px 0;
-
-    font-size:
-        1.45rem;
-
-    color:
-        var(--text);
-
-}
-
-
-/* MODELO MATEMÁTICO */
-
-.formula-card {
-
-    text-align:
-        center;
-
-}
-
-
-.formula-label {
-
-    color:
-        var(--accent-2);
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.08em;
-
-    font-size:
-        0.78rem;
-
-}
-
-
-.formula {
-
-    margin:
-        12px 0;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        clamp(2.2rem, 5vw, 4rem);
-
-    font-weight:
-        800;
-
-    color:
-        var(--text);
-
-}
-
-
-.matrix-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap:
-        20px;
-
-    margin-top:
-        20px;
-
-}
-
-
-.matrix-card pre,
-.system-card pre,
-.example-formula {
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    color:
-        var(--accent-2);
-
-    font-size:
-        1.35rem;
-
-    line-height:
-        1.6;
-
-    white-space:
-        pre-wrap;
-
-    text-align:
-        center;
-
-    margin:
-        10px 0 15px;
-
-}
-
-
-.matrix-card {
-
-    text-align:
-        center;
-
-}
-
-
-.system-card {
-
-    margin-top:
-        20px;
-
-    text-align:
-        center;
-
-}
-
-
-.system-card pre {
-
-    margin-bottom:
-        0;
-
-}
-
-
-/* CONCEITOS */
-
-.concept-card {
-
-    min-height:
-        220px;
-
-}
-
-
-.wide-card {
-
-    grid-column:
-        1 / -1;
-
-}
-
-
-.mini-formula {
-
-    margin:
-        15px 0;
-
-    padding:
-        12px;
-
-    border-radius:
-        12px;
-
-    background:
-        rgba(77, 163, 255, 0.09);
-
-    color:
-        var(--text);
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-weight:
-        700;
-
-    overflow-x:
-        auto;
-
-}
-
-
-.flow,
-.space-map {
-
-    font-size:
-        1.35rem;
-
-    text-align:
-        center;
-
-    color:
-        var(--accent-2) !important;
-
-}
-
-
-.space-map {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        18px;
-
-    margin:
-        20px 0;
-
-}
-
-
-/* EXEMPLO */
-
-.example-card {
-
-    text-align:
-        center;
-
-}
-
-
-.example-inputs,
-.result-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        18px;
-
-}
-
-
-.example-inputs > div {
-
-    padding:
-        20px;
-
-    background:
-        rgba(255,255,255,0.04);
-
-    border-radius:
-        14px;
-
-}
-
-
-.example-inputs span,
-.example-inputs strong,
-.example-inputs small {
-
-    display:
-        block;
-
-}
-
-
-.example-inputs span {
-
-    color:
-        var(--accent-2);
-
-    font-weight:
-        800;
-
-}
-
-
-.example-inputs strong {
-
-    font-size:
-        1.8rem;
-
-}
-
-
-.example-inputs small {
-
-    color:
-        var(--muted);
-
-}
-
-
-.arrow {
-
-    margin:
-        14px 0;
-
-    color:
-        var(--accent);
-
-    font-size:
-        1.8rem;
-
-}
-
-
-.example-formula {
-
-    background:
-        rgba(77, 163, 255, 0.08);
-
-    border-radius:
-        14px;
-
-    padding:
-        18px;
-
-}
-
-
-.result-grid {
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-}
-
-
-.result-grid > div {
-
-    padding:
-        18px;
-
-    border-radius:
-        14px;
-
-    background:
-        rgba(100, 211, 155, 0.08);
-
-    border:
-        1px solid rgba(100, 211, 155, 0.2);
-
-}
-
-
-.result-grid strong,
-.result-grid span {
-
-    display:
-        block;
-
-}
-
-
-.result-grid strong {
-
-    font-size:
-        1.5rem;
-
-    color:
-        var(--success);
-
-}
-
-
-.result-grid span {
-
-    color:
-        var(--muted);
-
-}
-
-
-/* CALCULADORA */
-
-.calculator-intro {
-
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
-
-    margin-bottom:
-        22px;
-
-}
-
-
-.status {
-
-    flex:
-        0 0 auto;
-
-    padding:
-        7px 11px;
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(255,255,255,0.06);
-
-    color:
-        var(--muted);
-
-    font-size:
-        0.8rem;
-
-    font-weight:
-        700;
-
-}
-
-
-.status.ready {
-
-    background:
-        rgba(100, 211, 155, 0.12);
-
-    color:
-        var(--success);
-
-}
-
-
-.status.error {
-
-    background:
-        rgba(255, 133, 133, 0.12);
-
-    color:
-        var(--danger);
-
-}
-
-
-.form-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(5, minmax(0, 1fr));
-
-    gap:
-        14px;
-
-}
-
-
-label {
-
-    color:
-        var(--muted);
-
-    font-size:
-        0.82rem;
-
-    font-weight:
-        600;
-
-}
-
-
-input {
-
-    width:
-        100%;
-
-    margin-top:
-        7px;
-
-    padding:
-        11px 12px;
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        10px;
-
-    background:
-        rgba(0,0,0,0.22);
-
-    color:
-        var(--text);
-
-    outline:
-        none;
-
-}
-
-
-input:focus {
-
-    border-color:
-        var(--accent);
-
-}
-
-
-.calc-results {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        15px;
-
-    margin-top:
-        24px;
+    gap: 15px;
 
 }
 
 
 .result-item {
 
-    padding:
-        18px;
+    padding: 20px;
 
-    border-radius:
-        14px;
+    border-radius: 12px;
 
     background:
-        rgba(77, 163, 255, 0.08);
+        rgba(255, 255, 255, 0.07);
 
-    border:
-        1px solid var(--line);
+    display: flex;
 
-}
+    flex-direction: column;
 
-
-.result-item span,
-.result-item strong {
-
-    display:
-        block;
+    gap: 8px;
 
 }
 
 
 .result-item span {
 
-    color:
-        var(--muted);
+    font-size: 0.85rem;
+
+    color: #cccccc;
 
 }
 
 
 .result-item strong {
 
-    margin-top:
-        6px;
+    font-size: 1.25rem;
 
-    font-size:
-        1.8rem;
+    color: #75b9ff;
 
 }
 
 
-.matrix-live {
+/* =========================
+   PASSOS
+========================= */
 
-    margin-top:
-        20px;
+.steps {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
 
 }
 
 
-.matrix-live h3 {
+.step {
 
-    margin-bottom:
-        8px;
+    padding: 20px;
 
-}
-
-
-.matrix-live pre {
+    border-radius: 12px;
 
     background:
-        #050a12;
-
-    border-radius:
-        12px;
-
-    padding:
-        15px;
-
-    color:
-        var(--accent-2);
-
-    font-family:
-        "Courier New",
-        monospace;
+        rgba(255, 255, 255, 0.07);
 
 }
 
 
-.small-note {
+.step span {
 
-    margin-top:
-        15px;
+    display: block;
 
-    color:
-        var(--muted);
+    font-size: 1.5rem;
 
-    font-size:
-        0.82rem;
+    font-weight: 700;
 
-}
+    color: #4da3ff;
 
-
-/* CÓDIGO */
-
-.code-head {
-
-    margin-top:
-        24px;
-
-    padding:
-        10px 14px;
-
-    border:
-        1px solid var(--line);
-
-    border-bottom:
-        0;
-
-    border-radius:
-        12px 12px 0 0;
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    gap:
-        10px;
-
-    align-items:
-        center;
-
-    background:
-        #050a12;
+    margin-bottom: 10px;
 
 }
 
 
-.code-head a {
+.step p {
 
-    color:
-        var(--accent-2);
+    margin: 0;
 
-    text-decoration:
-        none;
-
-    font-size:
-        0.85rem;
+    font-size: 0.9rem;
 
 }
 
 
-.code-block {
+/* =========================
+   LINKS
+========================= */
 
-    max-height:
-        430px;
+.links {
 
-    overflow:
-        auto;
+    display: flex;
 
-    margin:
-        0;
+    gap: 15px;
 
-    padding:
-        20px;
+    flex-wrap: wrap;
 
-    background:
-        #050a12;
-
-    border:
-        1px solid var(--line);
-
-    border-radius:
-        0 0 12px 12px;
-
-    color:
-        #dce6f2;
+    margin-top: 25px;
 
 }
 
 
-.code-block code {
+.link-btn {
 
-    font-family:
-        "Courier New",
-        monospace;
+    background: #0077ff;
 
-    font-size:
-        0.84rem;
+    color: white;
 
-    line-height:
-        1.65;
+    text-decoration: none;
 
-}
+    padding: 14px 22px;
 
+    border-radius: 10px;
 
-/* REFERÊNCIAS */
+    transition: 0.3s;
 
-.references p {
-
-    padding:
-        10px 0;
-
-    border-bottom:
-        1px solid var(--line);
+    font-weight: 500;
 
 }
 
 
-.references p:last-child {
+.link-btn:hover {
 
-    border-bottom:
-        0;
+    background: #005fd1;
+
+    transform:
+        translateY(-2px);
 
 }
 
 
-/* RODAPÉ */
+/* =========================
+   RODAPÉ
+========================= */
 
 footer {
 
-    margin-top:
-        40px;
+    text-align: center;
 
-    padding:
-        35px 7%;
-
-    text-align:
-        center;
+    padding: 30px 20px;
 
     background:
-        rgba(0,0,0,0.75);
-
-    border-top:
-        1px solid var(--line);
-
-    color:
-        var(--muted);
+        rgba(0, 0, 0, 0.8);
 
 }
 
 
-footer strong {
+footer p {
 
-    color:
-        var(--text);
+    margin: 5px 0;
 
-}
+    color: #cccccc;
 
-
-code {
-
-    color:
-        var(--accent-2);
+    font-size: 0.9rem;
 
 }
 
 
-/* RESPONSIVIDADE */
+/* =========================
+   RESPONSIVO
+========================= */
 
-@media (max-width: 950px) {
-
-    .grid.three,
-    .matrix-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .form-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-}
-
-
-@media (max-width: 760px) {
-
-    .menu-toggle {
-
-        display:
-            block;
-
-    }
+@media (max-width: 768px) {
 
 
     nav {
 
-        display:
-            none;
+        padding: 15px 5%;
 
-        position:
-            absolute;
+        flex-direction: column;
 
-        top:
-            70px;
-
-        left:
-            0;
-
-        right:
-            0;
-
-        padding:
-            18px 7%;
-
-        background:
-            rgba(3, 8, 16, 0.96);
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
+        gap: 10px;
 
     }
 
 
-    nav.open {
+    nav ul {
 
-        display:
-            flex;
+        gap: 15px;
 
-    }
+        flex-wrap: wrap;
 
-
-    .grid.two,
-    .result-grid,
-    .calc-results,
-    .example-inputs,
-    .form-grid {
-
-        grid-template-columns:
-            1fr;
+        justify-content: center;
 
     }
 
 
-    .calculator-intro {
+    nav a {
 
-        flex-direction:
-            column;
-
-    }
-
-
-    .section {
-
-        width:
-            92%;
-
-        padding:
-            65px 0;
+        font-size: 0.8rem;
 
     }
 
 
     .hero {
 
-        padding-left:
-            5%;
+        padding-top: 150px;
 
-        padding-right:
-            5%;
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .hero p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .container {
+
+        width: 92%;
+
+    }
+
+
+    .card {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .concept-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .results-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .steps {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .result-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
 
     }
 
