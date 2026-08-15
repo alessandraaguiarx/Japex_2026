@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelagem Matricial - JAPEX</title>
+    <title>Modelagem Matricial - JAPEX 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,10 +16,10 @@
 <div class="overlay">
 
     <nav>
-        <div class="logo">VI JAPEX 2026</div>
+        <div class="logo">JAPEX 2026</div>
         <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#conceito">Conceito</a></li>
+            <li><a href="#diferencas">Alvenarias</a></li>
+            <li><a href="#conceito">Modelo Matricial</a></li>
             <li><a href="#calculadora">Calculadora</a></li>
             <li><a href="#links">Links</a></li>
         </ul>
@@ -30,79 +30,95 @@
             <h1>Modelagem Matricial do Quantitativo de Materiais</h1>
             <p>
                 Aplicação da Álgebra Linear na Engenharia Civil para estimar quantitativos
-                de materiais em sistemas construtivos utilizando matrizes e transformações lineares.
+                de materiais em alvenaria convencional e estrutural utilizando transformações lineares $T: \mathbb{R}^2 \to \mathbb{R}^3$.
             </p>
-            <a href="#calculadora" class="btn">Experimentar a aplicação</a>
+            <a href="#calculadora" class="btn">Executar Calculadora</a>
         </div>
     </section>
 
     <div class="container">
 
-        <div class="card" id="sobre">
-            <h2>Sobre o Projeto</h2>
-            <p>
-              O projeto utiliza um modelo matricial para relacionar as áreas de alvenaria ao consumo de materiais por m². A partir das áreas de alvenaria convencional e estrutural, o modelo determina os quantitativos de argamassa x, argamassa y, graute y.
-            </p>
+        <!-- CARD: DIFERENÇA DAS ALVENARIAS + IMAGEM -->
+        <div class="card" id="diferencas">
+            <h2>Alvenaria Convencional vs. Alvenaria Estrutural</h2>
+            
+            <div class="img-container">
+                <img src="img/alvenarias.jpg" alt="Diferença entre Alvenaria Convencional e Alvenaria Estrutural" class="card-img">
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box box-convencional">
+                    <h3>Alvenaria Convencional (Variável X)</h3>
+                    <p>
+                        A alvenaria serve apenas para vedação/fechamento. A carga da edificação é suportada por vigas, pilares e fundações de concreto armado. Utiliza a <strong>Argamassa X</strong> para o assentamento dos blocos.
+                    </p>
+                </div>
+
+                <div class="info-box box-estrutural">
+                    <h3>Alvenaria Estrutural (Variável Y)</h3>
+                    <p>
+                        As próprias paredes realizam a função de suporte e sustentação, dispensando vigas e pilares. Utiliza a <strong>Argamassa Y</strong> no assentamento e o preenchimento das cavidades com <strong>Graute Y</strong>.
+                    </p>
+                </div>
+            </div>
         </div>
 
+        <!-- CARD: TEORIA MATRICIAL E SLIDES -->
         <div class="card" id="conceito">
-            <h2>Conceito Matemático</h2>
-            <p> O cálculo é representado pela Transformação Linear:</p>
-            <div class="formula">M = A × X</div>
-            <p style="margin-top:20px;">Onde:</p>
-            <ul style="margin-left:20px; line-height:2;">
-                <li><strong>A</strong> = Matriz de consumo dos materiais</li>
-                <li><strong>X</strong> = Vetor de áreas da construção</li>
-                <li><strong>M</strong> = Vetor dos quantitativos de materiais</li>
-            </ul>
-             <p style="margin-top:20px;">Assim, a transformação é dada por:</p>
-             <li><strong>R² ➔ R³</strong>O vetor de áreas é transformado em um vetor com quantitativo de materiais</li>
+            <h2>Fundamentação Matemática (Prezi & Pôster)</h2>
+            <p>O problema de Engenharia é mapeado como uma transformação linear entre espaços vetoriais:</p>
+            
+            <div class="formula">M = A · X</div>
+
+            <div style="margin-top: 20px; line-height: 1.8;">
+                <p><strong>Matriz de Consumo ($A$):</strong> $3 \times 2$ (Linhas: materiais / Colunas: tipos de alvenaria)</p>
+                <p><strong>Vetor de Entrada ($X \in \mathbb{R}^2$):</strong> Áreas $[x \text{ (convencional)}, y \text{ (estrutural)}]^T$</p>
+                <p><strong>Vetor de Saída ($M \in \mathbb{R}^3$):</strong> Quantitativos $[M_0, M_1, M_2]^T$</p>
+                <p><strong>Combinação Linear:</strong> $M = x \cdot \begin{bmatrix} \text{ArgX} \\ 0 \\ 0 \end{bmatrix} + y \cdot \begin{bmatrix} 0 \\ \text{ArgY} \\ \text{Graute} \end{bmatrix}$</p>
+            </div>
         </div>
 
-        <!-- CALCULADORA INTEGRADA COM SCRIPT.JS -->
+        <!-- CALCULADORA INTEGRADA -->
         <div class="card" id="calculadora">
-            <h2>Calculadora de Quantitativos de Materiais para Alvenaria</h2>
-            <p>A presente ferramenta tem como objetivo estimar os quantitativos de materiais empregados na execução de sistemas de alvenaria convencional e alvenaria estrutural, considerando o consumo dos materiais por unidade de área.</p>
-            <p>Para a alvenaria convencional, o cálculo considera o consumo de argamassa de assentamento em relação à área de alvenaria executada. </p>
-            <p>Para a alvenaria estrutural, são considerados os consumos de argamassa de assentamento e graute, relacionados à área de alvenaria estrutural.:</p>
-            <p> style="margin-bottom: 20px;">Insira os dados de consumo e áreas para realizar a multiplicação matricial:</p>
+            <h2>Calculadora de Quantitativo de Materiais</h2>
+            <p style="margin-bottom:20px;">Informe os coeficientes de consumo por m² e as áreas de alvenaria:</p>
             
             <form onsubmit="event.preventDefault(); calcularMateriais();">
                 <div class="form-grid">
                     <div class="input-group">
-                        <label for="argamassaX">Consumo Argamassa Convencional X (kg/m²):</label>
+                        <label for="argamassaX">Consumo ARGAMASSA X (kg/m²):</label>
                         <input type="number" id="argamassaX" step="any" placeholder="Ex: 5" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="argamassaY">Consumo Argamassa Estrutural Y (kg/m²):</label>
-                        <input type="number" id="argamassaY" step="any" placeholder="Ex: 6" required>
+                        <label for="argamassaY">Consumo ARGAMASSA Y (kg/m²):</label>
+                        <input type="number" id="argamassaY" step="any" placeholder="Ex: 3" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="graute">Consumo Graute Y (kg/m²):</label>
+                        <label for="graute">Consumo GRAUTE (kg/m²):</label>
                         <input type="number" id="graute" step="any" placeholder="Ex: 2" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="areaConvencional">Área Convencional (m²):</label>
-                        <input type="number" id="areaConvencional" step="any" placeholder="Ex: 100" required>
+                        <label for="areaConvencional">Área Alvenaria CONVENCIONAL - X (m²):</label>
+                        <input type="number" id="areaConvencional" step="any" placeholder="Ex: 10" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="areaEstrutural">Área Estrutural (m²):</label>
-                        <input type="number" id="areaEstrutural" step="any" placeholder="Ex: 150" required>
+                        <label for="areaEstrutural">Área Alvenaria ESTRUTURAL - Y (m²):</label>
+                        <input type="number" id="areaEstrutural" step="any" placeholder="Ex: 20" required>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-calc">Calcular Quantitativos</button>
+                <button type="submit" class="btn btn-calc">Calcular via Multiplicação Matricial</button>
             </form>
 
             <div id="resultado" class="result-box" style="display: none;">
-                <h3>Resultado Estimado (Vetor M)</h3>
-                <p>Argamassa Convencional  X: <strong id="resultadoArgamassaX">0,00 kg</strong></p>
-                <p>Argamassa Estrutural Y: <strong id="resultadoArgamassaY">0,00 kg</strong></p>
-                <p>Graute: <strong id="resultadoGraute">0,00 kg</strong></p>
+                <h3>=== RESULTADO FINAL ===</h3>
+                <p id="resultadoArgamassaX"></p>
+                <p id="resultadoArgamassaY"></p>
+                <p id="resultadoGraute"></p>
             </div>
         </div>
 
@@ -110,15 +126,14 @@
             <h2>Acesse o Projeto</h2>
             <div class="links">
                 <a href="https://prezi.com/view/tUU9ksq3lu8h5EcmZRio/?referral_token=JSz370lnB3FN" target="_blank" class="link-btn">Apresentação Prezi</a>
-                <a href="https://github.com/alessandraaguiarx/Modelagem-Matricial-de-Quantitativo-de-materiais" target="_blank" class="link-btn">GitHub</a>
+                <a href="https://github.com/alessandraaguiarx/Japex_2026" target="_blank" class="link-btn">GitHub</a>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>© 2026 Alessandra Aguiar. Todos os direitos reservados.</p>
-        <p>Salvador – BA, Brasil | aleaguiarx@gmail.com | Instagram: @alessandraaguiary</p>
+        <p>Projeto Acadêmico • JAPEX 2026 • Álgebra Linear Aplicada à Engenharia Civil</p>
     </footer>
 
 </div>
