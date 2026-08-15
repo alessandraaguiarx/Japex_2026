@@ -1,6 +1,13 @@
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+/* =========================================================
+   JAPEX 2026
+   MODELAGEM MATRICIAL
+   ESTILO VISUAL
+========================================================= */
+
+
+/* =========================================================
+
+========================================================= */
 
 * {
     margin: 0;
@@ -13,51 +20,87 @@ html {
 }
 
 body {
-
     font-family: 'Poppins', sans-serif;
 
-    background:
-        url("../img/algebra.jpg")
-        center center
-        / cover
-        no-repeat
-        fixed;
-
-    color: white;
-
     min-height: 100vh;
+
+    color: #ffffff;
+
+    background-image:
+        url("../img/algebra.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
 }
 
 
-/* =========================
-   SOBREPOSIÇÃO DO FUNDO
-========================= */
+/* =========================================================
+   CAMADA SOBRE A IMAGEM
+========================================================= */
 
 .overlay {
 
-    background:
-        rgba(0, 0, 0, 0.75);
-
     min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.90),
+            rgba(0, 15, 35, 0.82),
+            rgba(0, 0, 0, 0.90)
+        );
 
 }
 
 
-/* =========================
+/* =========================================================
+   EFEITO DECORATIVO DE FUNDO
+========================================================= */
+
+.overlay::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 119, 255, 0.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(0, 180, 255, 0.10),
+            transparent 30%
+        );
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
    MENU
-========================= */
+========================================================= */
 
 nav {
 
     width: 100%;
 
-    display: flex;
+    height: 76px;
 
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 20px 8%;
+    padding: 0 8%;
 
     position: fixed;
 
@@ -67,35 +110,80 @@ nav {
 
     z-index: 1000;
 
-    background:
-        rgba(0, 0, 0, 0.45);
+    display: flex;
 
-    backdrop-filter:
-        blur(10px);
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+        rgba(3, 8, 18, 0.72);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
 
     border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.08);
+        rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.35);
 
 }
 
+
+/* LOGO */
 
 .logo {
 
-    font-size: 1.4rem;
+    position: relative;
+
+    font-size: 1.45rem;
 
     font-weight: 700;
 
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+
+    color: #ffffff;
 
 }
 
+
+.logo::after {
+
+    content: "";
+
+    display: block;
+
+    width: 28px;
+
+    height: 3px;
+
+    margin-top: 3px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077ff,
+            #00bfff
+        );
+
+}
+
+
+/* LINKS */
 
 nav ul {
 
     display: flex;
 
-    gap: 25px;
+    align-items: center;
+
+    gap: 30px;
 
     list-style: none;
 
@@ -104,11 +192,43 @@ nav ul {
 
 nav a {
 
-    color: white;
+    position: relative;
+
+    color: #eeeeee;
 
     text-decoration: none;
 
-    font-size: 0.95rem;
+    font-size: 0.90rem;
+
+    font-weight: 400;
+
+    transition: 0.3s;
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077ff,
+            #00c6ff
+        );
 
     transition: 0.3s;
 
@@ -117,16 +237,27 @@ nav a {
 
 nav a:hover {
 
-    color: #4da3ff;
+    color: #ffffff;
 
 }
 
 
-/* =========================
+nav a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
+
+    position: relative;
+
+    z-index: 1;
 
     min-height: 100vh;
 
@@ -138,152 +269,286 @@ nav a:hover {
 
     text-align: center;
 
-    padding: 120px 20px 60px;
+    padding:
+        130px 25px 80px;
 
 }
 
+
+/* conteúdo */
 
 .hero-content {
 
-    max-width: 950px;
+    max-width: 1000px;
+
+    animation:
+        heroAppear 1s ease forwards;
 
 }
 
+
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* etiqueta */
 
 .hero-tag {
 
     display: inline-block;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
-    padding: 8px 18px;
+    padding:
+        8px 20px;
 
     border-radius: 50px;
 
+    color: #a9d9ff;
+
+    font-size: 0.78rem;
+
+    letter-spacing: 1px;
+
     background:
-        rgba(0, 119, 255, 0.15);
+        rgba(0, 119, 255, 0.10);
 
     border:
         1px solid
-        rgba(0, 119, 255, 0.5);
+        rgba(0, 157, 255, 0.45);
 
-    font-size: 0.85rem;
-
-    color: #b9dcff;
+    box-shadow:
+        0 0 25px
+        rgba(0, 119, 255, 0.10);
 
 }
 
+
+/* título */
 
 .hero h1 {
 
-    font-size: 3.5rem;
-
-    line-height: 1.15;
-
     margin-bottom: 25px;
+
+    font-size:
+        clamp(2.4rem, 6vw, 4.5rem);
+
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #b7ddff,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 
 }
 
 
+/* descrição */
+
 .hero p {
 
-    font-size: 1.15rem;
+    max-width: 850px;
 
-    line-height: 1.8;
+    margin:
+        0 auto;
 
-    color: #eeeeee;
+    color: #e0e0e0;
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
 
 }
 
 
 .hero-subtitle {
 
-    margin-top: 15px;
+    margin-top: 15px !important;
 
-    font-size: 1rem !important;
+    color: #aeb9c5 !important;
 
-    color: #cccccc !important;
+    font-size: 0.92rem !important;
 
 }
 
 
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
 .btn {
+
+    position: relative;
 
     display: inline-block;
 
-    margin-top: 30px;
+    margin-top: 35px;
 
-    padding: 15px 30px;
+    padding:
+        14px 30px;
 
-    background: #0077ff;
-
-    color: white;
+    color: #ffffff;
 
     text-decoration: none;
 
-    border-radius: 50px;
+    font-size: 0.95rem;
 
     font-weight: 600;
 
-    transition: 0.3s;
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077ff,
+            #0054c7
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 119, 255, 0.35);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
 
 }
 
 
 .btn:hover {
 
-    background: #005fd1;
-
     transform:
-        translateY(-3px);
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 119, 255, 0.55);
 
 }
 
 
-/* =========================
+/* =========================================================
    CONTAINER
-========================= */
+========================================================= */
 
 .container {
 
+    position: relative;
+
+    z-index: 2;
+
     width: 90%;
 
-    max-width: 1100px;
+    max-width: 1150px;
 
     margin: auto;
 
-    padding: 60px 0 80px;
+    padding:
+        70px 0
+        100px;
 
 }
 
 
-/* =========================
-   CARDS
-========================= */
+/* =========================================================
+   CARDS GLASS
+========================================================= */
 
 .card {
 
-    background:
-        rgba(255, 255, 255, 0.12);
+    position: relative;
 
-    backdrop-filter:
-        blur(15px);
+    overflow: hidden;
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.2);
-
-    border-radius: 20px;
-
-    padding: 35px;
+    padding: 38px;
 
     margin-bottom: 30px;
 
-    box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
 
-    transition: 0.3s;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.055)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.35s,
+        border 0.35s,
+        box-shadow 0.35s;
+
+}
+
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #0077ff,
+            #00c6ff,
+            transparent
+        );
+
+    opacity: 0.8;
 
 }
 
@@ -291,55 +556,101 @@ nav a:hover {
 .card:hover {
 
     transform:
-        translateY(-3px);
+        translateY(-5px);
+
+    border-color:
+        rgba(0, 153, 255, 0.35);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.38);
 
 }
 
+
+/* títulos */
 
 .card h2 {
 
     margin-bottom: 18px;
 
-    font-size: 1.8rem;
+    color: #ffffff;
+
+    font-size: 1.65rem;
+
+    font-weight: 600;
+
+}
+
+
+.card h2::first-letter {
+
+    color: #4da3ff;
 
 }
 
 
 .card p {
 
-    line-height: 1.8;
+    color: #dddddd;
 
-    color: #eeeeee;
+    font-size: 0.95rem;
 
-    margin-bottom: 15px;
+    line-height: 1.9;
+
+    margin-bottom: 14px;
 
 }
 
 
-/* =========================
+/* =========================================================
    FÓRMULA
-========================= */
+========================================================= */
 
 .formula {
 
+    position: relative;
+
+    overflow: hidden;
+
+    margin:
+        28px 0;
+
+    padding:
+        25px;
+
     text-align: center;
 
-    font-size: 2.2rem;
+    color: #ffffff;
 
-    font-weight: 700;
+    font-family:
+        'Times New Roman',
+        serif;
 
-    padding: 25px;
+    font-size: 2.3rem;
 
-    margin: 25px 0;
+    font-weight: bold;
 
-    border-radius: 15px;
+    letter-spacing: 2px;
+
+    border-radius: 18px;
 
     background:
-        rgba(0, 119, 255, 0.18);
+        linear-gradient(
+            135deg,
+            rgba(0, 119, 255, 0.18),
+            rgba(0, 72, 150, 0.10)
+        );
 
     border:
         1px solid
-        rgba(0, 119, 255, 0.6);
+        rgba(0, 153, 255, 0.45);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(0, 119, 255, 0.06),
+        0 0 30px
+        rgba(0, 119, 255, 0.08);
 
 }
 
@@ -348,14 +659,16 @@ nav a:hover {
 
     text-align: center;
 
-    font-size: 0.95rem;
+    color: #bfc8d0 !important;
+
+    font-size: 0.85rem !important;
 
 }
 
 
-/* =========================
-   CONCEITO
-========================= */
+/* =========================================================
+   CONCEITOS A / X / M
+========================================================= */
 
 .concept-grid {
 
@@ -364,67 +677,94 @@ nav a:hover {
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 15px;
+    gap: 18px;
 
-    margin-top: 25px;
+    margin-top: 28px;
 
 }
 
 
 .concept-grid div {
 
-    display: flex;
+    position: relative;
 
-    flex-direction: column;
-
-    align-items: center;
+    padding: 25px 18px;
 
     text-align: center;
 
-    padding: 20px;
-
-    border-radius: 12px;
+    border-radius: 17px;
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(0, 0, 0, 0.18);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.concept-grid div:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0, 119, 255, 0.35);
 
 }
 
 
 .concept-grid strong {
 
-    font-size: 1.8rem;
-
-    color: #66b0ff;
+    display: block;
 
     margin-bottom: 8px;
+
+    color: #55aaff;
+
+    font-size: 2rem;
 
 }
 
 
 .concept-grid span {
 
-    font-size: 0.85rem;
+    display: block;
 
-    color: #ddd;
+    color: #cccccc;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
 
 }
 
 
-/* =========================
+/* =========================================================
    CALCULADORA
-========================= */
+========================================================= */
 
 .calculator {
 
-    margin-top: 30px;
+    margin-top: 28px;
 
-    padding: 25px;
+    padding: 30px;
 
-    border-radius: 15px;
+    border-radius: 20px;
 
     background:
-        rgba(0, 0, 0, 0.18);
+        rgba(0, 0, 0, 0.24);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(0, 0, 0, 0.12);
 
 }
 
@@ -440,23 +780,27 @@ nav a:hover {
 
     margin-bottom: 5px;
 
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+
+    font-weight: 600;
 
 }
 
 
 .calculator-title p {
 
-    font-size: 0.9rem;
+    margin: 0;
 
-    color: #cccccc;
+    color: #aeb8c1;
+
+    font-size: 0.82rem;
 
 }
 
 
-/* =========================
-   FORMULÁRIO
-========================= */
+/* =========================================================
+   CAMPOS
+========================================================= */
 
 .form-grid {
 
@@ -483,7 +827,9 @@ nav a:hover {
 
     margin-bottom: 8px;
 
-    font-size: 0.9rem;
+    color: #e9eef3;
+
+    font-size: 0.82rem;
 
     font-weight: 500;
 
@@ -492,7 +838,7 @@ nav a:hover {
 
 .field label small {
 
-    color: #aaaaaa;
+    color: #8d9aa6;
 
     font-weight: 400;
 
@@ -503,71 +849,102 @@ nav a:hover {
 
     width: 100%;
 
-    padding: 14px;
+    padding:
+        13px 15px;
 
-    border-radius: 10px;
+    color: #ffffff;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size: 0.9rem;
+
+    outline: none;
+
+    border-radius: 11px;
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.25);
+        rgba(255, 255, 255, 0.14);
 
     background:
-        rgba(255, 255, 255, 0.1);
-
-    color: white;
-
-    font-size: 1rem;
-
-    outline: none;
+        rgba(255, 255, 255, 0.07);
 
     transition: 0.3s;
 
 }
 
 
+.field input:hover {
+
+    border-color:
+        rgba(255, 255, 255, 0.25);
+
+}
+
+
 .field input:focus {
 
-    border-color: #0077ff;
+    border-color:
+        #0077ff;
+
+    background:
+        rgba(0, 119, 255, 0.08);
 
     box-shadow:
-        0 0 0 2px
-        rgba(0, 119, 255, 0.15);
+        0 0 0 3px
+        rgba(0, 119, 255, 0.10);
 
 }
 
 
 .field input::placeholder {
 
-    color: #aaaaaa;
+    color: #77838e;
 
 }
 
 
-/* =========================
-   BOTÃO CALCULAR
-========================= */
+/* =========================================================
+   BOTÃO CALCULADORA
+========================================================= */
 
 .calculate-btn {
 
+    width: 100%;
+
     margin-top: 25px;
 
-    padding: 15px 28px;
+    padding:
+        14px 25px;
 
     border: none;
 
-    border-radius: 10px;
-
-    background: #0077ff;
+    border-radius: 12px;
 
     color: white;
 
-    font-family: inherit;
+    font-family:
+        'Poppins',
+        sans-serif;
 
-    font-size: 1rem;
+    font-size: 0.92rem;
 
     font-weight: 600;
 
     cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077ff,
+            #0057c8
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 119, 255, 0.25);
 
     transition: 0.3s;
 
@@ -576,34 +953,40 @@ nav a:hover {
 
 .calculate-btn:hover {
 
-    background: #005fd1;
-
     transform:
         translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 119, 255, 0.4);
 
 }
 
 
-/* =========================
+/* =========================================================
    RESULTADO
-========================= */
+========================================================= */
 
 .result-box {
 
     display: none;
 
-    margin-top: 30px;
+    margin-top: 25px;
 
     padding: 25px;
 
-    border-radius: 15px;
+    border-radius: 17px;
 
     background:
-        rgba(0, 119, 255, 0.12);
+        linear-gradient(
+            135deg,
+            rgba(0, 119, 255, 0.12),
+            rgba(0, 0, 0, 0.20)
+        );
 
     border:
         1px solid
-        rgba(0, 119, 255, 0.55);
+        rgba(0, 153, 255, 0.35);
 
 }
 
@@ -616,8 +999,6 @@ nav a:hover {
 
     align-items: center;
 
-    gap: 15px;
-
     margin-bottom: 20px;
 
 }
@@ -625,16 +1006,18 @@ nav a:hover {
 
 .result-header h3 {
 
-    font-size: 1.3rem;
+    font-size: 1.15rem;
+
+    font-weight: 600;
 
 }
 
 
 .result-header span {
 
-    font-size: 0.8rem;
+    color: #82909d;
 
-    color: #bbbbbb;
+    font-size: 0.72rem;
 
 }
 
@@ -655,41 +1038,43 @@ nav a:hover {
 
     padding: 20px;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.055);
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
 }
 
 
 .result-item span {
 
-    font-size: 0.85rem;
+    display: block;
 
-    color: #cccccc;
+    margin-bottom: 8px;
+
+    color: #aeb8c1;
+
+    font-size: 0.78rem;
 
 }
 
 
 .result-item strong {
 
-    font-size: 1.25rem;
+    color: #5db0ff;
 
-    color: #75b9ff;
+    font-size: 1.15rem;
 
 }
 
 
-/* =========================
-   PASSOS
-========================= */
+/* =========================================================
+   ETAPAS
+========================================================= */
 
 .steps {
 
@@ -707,12 +1092,29 @@ nav a:hover {
 
 .step {
 
-    padding: 20px;
+    padding: 22px;
 
-    border-radius: 12px;
+    border-radius: 15px;
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.step:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(0, 119, 255, 0.30);
 
 }
 
@@ -721,13 +1123,13 @@ nav a:hover {
 
     display: block;
 
-    font-size: 1.5rem;
+    margin-bottom: 10px;
+
+    color: #168bff;
+
+    font-size: 1.2rem;
 
     font-weight: 700;
-
-    color: #4da3ff;
-
-    margin-bottom: 10px;
 
 }
 
@@ -736,14 +1138,18 @@ nav a:hover {
 
     margin: 0;
 
-    font-size: 0.9rem;
+    color: #cbd3da;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
 
 }
 
 
-/* =========================
+/* =========================================================
    LINKS
-========================= */
+========================================================= */
 
 .links {
 
@@ -760,45 +1166,70 @@ nav a:hover {
 
 .link-btn {
 
-    background: #0077ff;
+    display: inline-block;
 
-    color: white;
+    padding:
+        13px 23px;
+
+    color: #ffffff;
 
     text-decoration: none;
 
-    padding: 14px 22px;
-
-    border-radius: 10px;
-
-    transition: 0.3s;
+    font-size: 0.85rem;
 
     font-weight: 500;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077ff,
+            #005acb
+        );
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 119, 255, 0.20);
+
+    transition: 0.3s;
 
 }
 
 
 .link-btn:hover {
 
-    background: #005fd1;
-
     transform:
-        translateY(-2px);
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0, 119, 255, 0.35);
 
 }
 
 
-/* =========================
+/* =========================================================
    RODAPÉ
-========================= */
+========================================================= */
 
 footer {
 
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        30px 20px;
+
     text-align: center;
 
-    padding: 30px 20px;
-
     background:
-        rgba(0, 0, 0, 0.8);
+        rgba(0, 0, 0, 0.75);
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
 }
 
@@ -807,23 +1238,53 @@ footer p {
 
     margin: 5px 0;
 
-    color: #cccccc;
+    color: #9da8b2;
 
-    font-size: 0.9rem;
+    font-size: 0.78rem;
 
 }
 
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .concept-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .results-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .steps {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
-
     nav {
 
-        padding: 15px 5%;
+        height: auto;
+
+        min-height: 70px;
+
+        padding:
+            15px 5%;
 
         flex-direction: column;
 
@@ -836,37 +1297,37 @@ footer p {
 
         gap: 15px;
 
-        flex-wrap: wrap;
-
         justify-content: center;
+
+        flex-wrap: wrap;
 
     }
 
 
     nav a {
 
-        font-size: 0.8rem;
+        font-size: 0.75rem;
 
     }
 
 
     .hero {
 
-        padding-top: 150px;
+        padding-top: 160px;
 
     }
 
 
     .hero h1 {
 
-        font-size: 2.2rem;
+        font-size: 2.35rem;
 
     }
 
 
     .hero p {
 
-        font-size: 1rem;
+        font-size: 0.95rem;
 
     }
 
@@ -875,6 +1336,8 @@ footer p {
 
         width: 92%;
 
+        padding-top: 50px;
+
     }
 
 
@@ -882,33 +1345,30 @@ footer p {
 
         padding: 25px 20px;
 
+        border-radius: 20px;
+
     }
 
 
-    .concept-grid {
+    .calculator {
 
-        grid-template-columns: 1fr;
+        padding: 20px;
 
     }
 
 
     .form-grid {
 
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .results-grid {
-
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
     }
 
 
     .steps {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
     }
 
@@ -918,6 +1378,51 @@ footer p {
         flex-direction: column;
 
         align-items: flex-start;
+
+        gap: 5px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .hero-tag {
+
+        font-size: 0.68rem;
+
+    }
+
+
+    .formula {
+
+        font-size: 1.8rem;
+
+        padding: 20px;
+
+    }
+
+
+    .links {
+
+        flex-direction: column;
+
+    }
+
+
+    .link-btn {
+
+        width: 100%;
+
+        text-align: center;
 
     }
 
