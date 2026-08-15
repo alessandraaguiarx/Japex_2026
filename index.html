@@ -61,23 +61,26 @@
 
         <!-- CALCULADORA INTEGRADA COM SCRIPT.JS -->
         <div class="card" id="calculadora">
-            <h2>Calculadora Interativa</h2>
-            <p style="margin-bottom: 20px;">Insira os dados de consumo e áreas para realizar a multiplicação matricial:</p>
+            <h2>Calculadora de Quantitativos de Materiais para Alvenaria</h2>
+            <p>A presente ferramenta tem como objetivo estimar os quantitativos de materiais empregados na execução de sistemas de alvenaria convencional e alvenaria estrutural, considerando o consumo dos materiais por unidade de área.</p>
+            <p>Para a alvenaria convencional, o cálculo considera o consumo de argamassa de assentamento em relação à área de alvenaria executada. </p>
+            <p>Para a alvenaria estrutural, são considerados os consumos de argamassa de assentamento e graute, relacionados à área de alvenaria estrutural.:</p>
+            <p> style="margin-bottom: 20px;">Insira os dados de consumo e áreas para realizar a multiplicação matricial:</p>
             
             <form onsubmit="event.preventDefault(); calcularMateriais();">
                 <div class="form-grid">
                     <div class="input-group">
-                        <label for="argamassaX">Consumo Argamassa X (kg/m²):</label>
+                        <label for="argamassaX">Consumo Argamassa Convencional X (kg/m²):</label>
                         <input type="number" id="argamassaX" step="any" placeholder="Ex: 5" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="argamassaY">Consumo Argamassa Y (kg/m²):</label>
+                        <label for="argamassaY">Consumo Argamassa Estrutural Y (kg/m²):</label>
                         <input type="number" id="argamassaY" step="any" placeholder="Ex: 6" required>
                     </div>
 
                     <div class="input-group">
-                        <label for="graute">Consumo Graute (kg/m²):</label>
+                        <label for="graute">Consumo Graute Y (kg/m²):</label>
                         <input type="number" id="graute" step="any" placeholder="Ex: 2" required>
                     </div>
 
@@ -97,8 +100,8 @@
 
             <div id="resultado" class="result-box" style="display: none;">
                 <h3>Resultado Estimado (Vetor M)</h3>
-                <p>Argamassa X: <strong id="resultadoArgamassaX">0,00 kg</strong></p>
-                <p>Argamassa Y: <strong id="resultadoArgamassaY">0,00 kg</strong></p>
+                <p>Argamassa Convencional  X: <strong id="resultadoArgamassaX">0,00 kg</strong></p>
+                <p>Argamassa Estrutural Y: <strong id="resultadoArgamassaY">0,00 kg</strong></p>
                 <p>Graute: <strong id="resultadoGraute">0,00 kg</strong></p>
             </div>
         </div>
